@@ -19,11 +19,20 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-    //todo add
-    //private Difficulty difficulty;
+
+    @Enumerated(value = EnumType.ORDINAL)
+    private Difficulty difficulty;
 
     @Lob
     private Byte[] image;
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
